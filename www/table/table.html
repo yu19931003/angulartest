@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>angularjs做表格</title>
+	<script type="text/javascript" src="../../anglarjs/angular-1.3.0.14/angular.min.js"></script>
+	<script type="text/javascript" src="./controller.js"></script>
+	<style type="text/css">
+		table{width:100%;border-collapse: collapse;}
+		th{border:1px solid #ccc;}
+		td{text-align: center;border:1px solid #ccc;border-top: 0;}
+		th,td{line-height: 26px;}
+	</style>
+</head>
+<body ng-app="table">
+	<table ng-controller="tableCtrl">
+		<tr>
+			<th>num</th>
+			<th>name</th>
+			<th>age</th>
+			<th>sex</th>
+		</tr>
+		<tr ng-repeat="x in list | orderBy:'age'" style="{{$even?'background-color: #f1f1f1':''}}">
+			<td>{{$index+1}}</td>
+			<td>{{x.name | uppercase}}</td>
+			<td>{{x.age}}</td>
+			<td>{{x.sex}}</td>
+		</tr>
+	</table>
+</body>
+</html>

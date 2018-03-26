@@ -1,0 +1,28 @@
+<div id="header" ng-controller="headerCtrl">
+	<div class="left">
+		<ul>
+			<li class="weather-parent" ng-mouseenter="show = true" ng-mouseleave="show = false">
+				<a>城市名称</a>
+				<a class="weather-tem"><img src="{{img}}"><span>35℃</span></a>
+				<a class="weather-state" ng-switch="{{weatherState()}}">
+					<i ng-switch-when="1" class="green">优</i>
+					<i ng-switch-when="2" class="yellow">良</i>
+					<i ng-switch-when="3" class="orange">轻度污染</i>
+					<i ng-switch-when="4" class="red">中度污染</i> 
+					<i ng-switch-when="5" class="purple">重度污染</i> 
+					<i ng-switch-when="6" class="deepred">严重污染</i> 
+					<span>300</span>
+				</a>
+				<weather class="weather" ng-show="show" ui-view="weather"></weather>
+			</li>
+			<li><a>|</a></li>
+			<li><a href="" alt="换肤" title="换肤">换肤</a></li>
+			<li><a href="" alt="消息" title="消息">消息</a></li>
+		</ul>
+	</div>
+	<div class="right">
+		<ul>
+			<li ng-repeat="x in leftNav" ui-sref="{{x.url}}"><a href="">{{x.name}}</a></li>
+		</ul>
+	</div>
+</div>
